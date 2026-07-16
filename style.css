@@ -1,0 +1,2637 @@
+/* 
+    RESET CSS
+
+    Remove configurações padrões que o navegador
+    coloca automaticamente nos elementos.
+*/
+
+
+* {
+
+    /* Remove margem padrão */
+    margin: 0;
+
+
+    /* Remove espaçamento interno padrão */
+    padding: 0;
+
+
+    /*
+        Faz com que largura e altura incluam
+        padding e bordas.
+
+        Facilita muito o controle dos elementos.
+    */
+
+    box-sizing: border-box;
+
+}
+
+
+
+
+
+/*
+    CONFIGURAÇÕES GERAIS DO SITE
+
+    Tudo dentro do body recebe essas regras.
+*/
+
+
+body {
+
+
+    /* Cor de fundo principal */
+    background-color: #050816;
+
+
+
+    /* Cor padrão dos textos */
+    color: white;
+
+
+
+    /* Fonte usada no site */
+    font-family: Arial, sans-serif;
+
+
+}
+
+
+
+
+
+
+
+
+/* ================= HEADER ================= */
+
+
+/*
+    Cabeçalho do site.
+
+    Contém:
+    - Nome da barbearia
+    - Menu de navegação
+*/
+
+
+header {
+
+
+
+    /*
+        Ativa o Flexbox.
+
+        Permite organizar elementos
+        lado a lado.
+    */
+
+    display: flex;
+
+
+
+    /*
+        Coloca um item em cada ponta.
+
+        Logo fica na esquerda.
+        Menu fica na direita.
+    */
+
+    justify-content: space-between;
+
+
+
+
+    /*
+        Alinha verticalmente os elementos
+        no centro.
+    */
+
+    align-items: center;
+
+
+
+
+    /*
+        Espaçamento interno.
+
+        30px em cima e embaixo.
+        8% nas laterais.
+    */
+
+    padding: 30px 8%;
+
+
+}
+
+
+
+
+
+
+
+/*
+    Título da barbearia
+*/
+
+
+header h1 {
+
+
+    /* Cor azul da identidade visual */
+
+    color: #00aaff;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ================= MENU ================= */
+
+
+/*
+    Links do menu.
+*/
+
+
+nav a {
+
+
+
+    /*
+        Permite aplicar transformações
+        e efeitos no link.
+    */
+
+    display: inline-block;
+
+
+
+
+    /* Cor do texto */
+
+    color: white;
+
+
+
+
+    /* Remove o sublinhado padrão */
+
+    text-decoration: none;
+
+
+
+
+    /*
+        Espaço entre os links.
+
+        Exemplo:
+        Início | Serviços | Sobre
+    */
+
+    margin-left: 25px;
+
+
+
+
+    /*
+        Necessário para criar
+        o efeito da linha azul.
+    */
+
+    position: relative;
+
+
+
+
+    /*
+        Suaviza animações.
+
+        Sem isso o efeito seria instantâneo.
+    */
+
+    transition: 0.3s;
+
+
+
+}
+
+
+
+
+
+
+
+/*
+    Cria a linha azul abaixo do menu.
+
+    O ::after cria um elemento falso.
+*/
+
+
+nav a::after {
+
+
+    /* Obrigatório no pseudo-elemento */
+
+    content: "";
+
+
+
+    /*
+        Começa invisível.
+
+        Depois aumenta no hover.
+    */
+
+    width: 0;
+
+
+
+    /* Altura da linha */
+
+    height: 2px;
+
+
+
+
+    /* Cor da linha */
+
+    background: #00aaff;
+
+
+
+
+    /* Distância abaixo do texto */
+
+    bottom: -5px;
+
+
+
+
+    /* Começa alinhado à esquerda */
+
+    left: 0;
+
+
+
+
+    /* Permite posicionar corretamente */
+
+    position: absolute;
+
+
+
+
+    /* Animação da linha */
+
+    transition: 0.3s;
+
+
+
+}
+
+
+
+
+
+
+
+/*
+    Quando passa o mouse no link.
+*/
+
+
+nav a:hover {
+
+
+    /*
+        Muda a cor do texto.
+    */
+
+    color: #00aaff;
+
+
+
+
+    /*
+        Move o link 5px para cima.
+    */
+
+    transform: translateY(-5px);
+
+
+}
+
+
+
+
+
+
+
+/*
+    Ao passar o mouse:
+
+    A linha cresce até ocupar
+    todo o tamanho do link.
+*/
+
+
+nav a:hover::after {
+
+
+    width: 100%;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================= INÍCIO ================= */
+
+
+/*
+    Primeira tela do site.
+
+    É a Hero Section.
+
+    Normalmente é a parte mais importante.
+*/
+
+
+.inicio {
+
+
+    /*
+        Altura mínima.
+
+        80vh significa:
+        80% da altura da tela.
+    */
+
+    min-height: 80vh;
+
+
+
+
+    /*
+        Ativa Flexbox.
+
+    */
+
+    display: flex;
+
+
+
+
+    /*
+        Organiza os elementos
+        em coluna.
+
+        span
+        h2
+        p
+        botão
+
+    */
+
+    flex-direction: column;
+
+
+
+
+    /*
+        Centraliza verticalmente
+        o conteúdo.
+
+    */
+
+    justify-content: center;
+
+
+
+
+    /* Espaço nas laterais */
+
+    padding: 0 8%;
+
+
+
+
+
+    /*
+        Imagem de fundo + camada escura.
+
+        A camada escura melhora
+        a leitura do texto.
+    */
+
+
+    background-image:
+
+
+    linear-gradient(
+        rgba(5,8,22,0.7),
+        rgba(5,8,22,0.9)
+    ),
+
+
+    url("imagens/barbearia.jpg");
+
+
+
+
+
+    /*
+        Faz a imagem ocupar
+        todo o espaço disponível.
+    */
+
+    background-size: cover;
+
+
+
+
+    /*
+        Centraliza a imagem.
+    */
+
+    background-position: center;
+
+
+
+}
+/* ================= TEXTO DO INÍCIO ================= */
+
+
+/*
+    Pequeno texto acima do título.
+
+    Exemplo:
+    BARBEARIA PREMIUM
+*/
+
+
+.inicio span {
+
+
+    /* Cor azul da identidade visual */
+
+    color: #00aaff;
+
+
+
+
+    /*
+        Tamanho da letra.
+    */
+
+    font-size:18px;
+
+
+
+
+    /*
+        Espaçamento entre letras.
+
+        Deixa com aparência mais premium.
+    */
+
+    letter-spacing:3px;
+
+
+
+
+    /*
+        Espaço abaixo do texto.
+    */
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+
+
+/*
+    Título principal da primeira tela.
+*/
+
+
+.inicio h2 {
+
+
+
+    /*
+        clamp()
+
+        Permite que o tamanho seja responsivo.
+
+        Mínimo: 35px
+        Ideal: 5vw
+        Máximo: 50px
+
+    */
+
+
+    font-size:clamp(35px,5vw,50px);
+
+
+
+
+    /*
+        Aplica a animação criada
+        no @keyframes aparecer.
+
+    */
+
+    animation: aparecer 1s ease;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Texto de descrição do site.
+*/
+
+
+.inicio p {
+
+
+    /*
+        Espaço acima do parágrafo.
+    */
+
+    margin-top:20px;
+
+
+
+
+    /* Tamanho da fonte */
+
+    font-size:20px;
+
+
+
+
+    /*
+        Impede que o texto fique
+        muito comprido na tela.
+
+    */
+
+    max-width:500px;
+
+
+
+
+    /*
+        Segunda parte da animação.
+
+        Aparece um pouco depois do título.
+    */
+
+    animation: aparecer 1.5s ease;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================= BOTÃO ================= */
+
+
+/*
+    Estilo padrão dos botões.
+
+    Usado no:
+    - Agendar horário
+    - WhatsApp
+*/
+
+
+button {
+
+
+    /*
+        Espaço acima do botão.
+    */
+
+    margin-top:30px;
+
+
+
+
+    /* Largura fixa */
+
+    width:200px;
+
+
+
+
+    /* Espaçamento interno */
+
+    padding:15px;
+
+
+
+
+
+    /* Cor azul principal */
+
+    background:#00aaff;
+
+
+
+
+    /*
+        Remove borda padrão.
+    */
+
+    border:none;
+
+
+
+
+    /*
+        Deixa o botão arredondado.
+    */
+
+    border-radius:30px;
+
+
+
+
+    /* Cor do texto */
+
+    color:white;
+
+
+
+
+    /* Tamanho da letra */
+
+    font-size:16px;
+
+
+
+
+    /* Texto em negrito */
+
+    font-weight:bold;
+
+
+
+
+    /*
+        Mostra a mãozinha
+        ao passar o mouse.
+
+    */
+
+    cursor:pointer;
+
+
+
+
+    /*
+        Suaviza efeitos.
+
+    */
+
+    transition:0.3s;
+
+
+
+
+    /*
+        Cria brilho azul.
+
+    */
+
+    box-shadow:0 0 15px #00aaff;
+
+
+
+}
+
+
+
+
+
+
+
+/*
+    Efeito quando passa o mouse
+    em cima do botão.
+*/
+
+
+button:hover {
+
+
+
+    /*
+        Aumenta o botão levemente.
+
+    */
+
+    transform:scale(1.08);
+
+
+
+
+    /*
+        Azul mais escuro.
+
+    */
+
+    background:#0088cc;
+
+
+
+
+    /*
+        Aumenta o brilho.
+
+    */
+
+    box-shadow:0 0 30px #00aaff;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================= SERVIÇOS ================= */
+
+
+/*
+    Área onde ficam os cards
+    dos serviços.
+
+*/
+
+
+.servicos {
+
+
+    /*
+        Espaçamento interno:
+
+        80px cima/baixo
+        8% lados
+
+    */
+
+    padding:80px 8%;
+
+
+
+
+    /*
+        Centraliza os textos.
+
+    */
+
+    text-align:center;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Título:
+    "Nossos Serviços"
+*/
+
+
+.servicos h2 {
+
+
+
+    font-size:40px;
+
+
+
+
+    /*
+        Espaço entre o título
+        e os cards.
+
+    */
+
+    margin-bottom:50px;
+
+
+
+
+    color:#00aaff;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
+    Container dos cards.
+
+    Aqui usamos Flexbox
+    para organizar os serviços.
+
+*/
+
+
+.cards {
+
+
+    /*
+        Ativa Flexbox.
+
+    */
+
+    display:flex;
+
+
+
+
+    /*
+        Centraliza os cards.
+
+    */
+
+    justify-content:center;
+
+
+
+
+    /*
+        Espaçamento entre cards.
+
+    */
+
+    gap:30px;
+
+
+
+
+    /*
+        Permite quebrar linha.
+
+        Exemplo:
+        3 cards por linha no PC
+        1 card no celular
+
+    */
+
+    flex-wrap:wrap;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Cada serviço individual.
+
+*/
+
+
+.card {
+
+
+    /*
+        Fundo dos cards.
+
+    */
+
+    background:#0b1228;
+
+
+
+
+    /*
+        Largura fixa.
+
+    */
+
+    width:300px;
+
+
+
+
+    /*
+        Espaço interno.
+
+    */
+
+    padding:30px;
+
+
+
+
+    /*
+        Bordas arredondadas.
+
+    */
+
+    border-radius:15px;
+
+
+
+
+    /*
+        Suaviza animações.
+
+    */
+
+    transition:0.3s;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Efeito ao passar o mouse
+    no card.
+
+*/
+
+
+.card:hover {
+
+
+
+    /*
+        Levanta o card.
+
+    */
+
+    transform:translateY(-10px);
+
+
+
+
+    /*
+        Adiciona brilho azul.
+
+    */
+
+    box-shadow:0 0 20px #00aaff;
+
+
+
+}
+
+
+
+
+
+
+
+/*
+    Nome do serviço.
+
+*/
+
+
+.card h3 {
+
+
+    /*
+        Espaço abaixo do título.
+
+    */
+
+    margin-bottom:20px;
+
+
+
+
+    font-size:25px;
+
+
+}
+
+
+
+
+
+
+
+/*
+    Descrição do serviço.
+
+*/
+
+
+.card p {
+
+
+    /*
+        Cor cinza para
+        diferenciar do título.
+
+    */
+
+    color:#ccc;
+
+
+
+
+    /*
+        Altura das linhas.
+
+    */
+
+    line-height:1.5;
+
+
+
+}
+
+
+
+
+
+
+
+/*
+    Preço do serviço.
+
+*/
+
+
+.card span {
+
+
+    /*
+        Faz ocupar uma linha inteira.
+
+    */
+
+    display:block;
+
+
+
+
+    margin-top:20px;
+
+
+
+
+    color:#00aaff;
+
+
+
+
+    font-size:22px;
+
+
+
+
+    font-weight:bold;
+
+
+
+}
+/* ================= SOBRE ================= */
+
+
+/*
+    Seção "Sobre a Black Blue"
+
+    Aqui usamos CSS Grid para criar
+    duas colunas:
+
+    esquerda → imagem
+    direita → texto
+
+*/
+
+
+.sobre {
+
+
+    /*
+        Espaçamento interno da seção.
+
+        120px em cima e embaixo
+        8% nas laterais
+
+    */
+
+    padding:120px 8%;
+
+
+
+
+    /*
+        Ativa o Grid Layout.
+
+    */
+
+    display:grid;
+
+
+
+
+    /*
+        Cria duas colunas iguais.
+
+        1fr = uma fração do espaço disponível.
+
+    */
+
+    grid-template-columns:1fr 1fr;
+
+
+
+
+    /*
+        Alinha imagem e texto
+        verticalmente no centro.
+
+    */
+
+    align-items:center;
+
+
+
+
+    /*
+        Espaçamento entre colunas.
+
+    */
+
+    gap:60px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
+    Área onde fica o texto
+    da seção Sobre.
+
+*/
+
+
+.sobre-texto {
+
+
+    /*
+        Limita o tamanho do texto
+        para facilitar leitura.
+
+    */
+
+    max-width:550px;
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Pequeno texto:
+
+    SOBRE A BLACK BLUE
+
+*/
+
+
+.sobre span {
+
+
+    color:#00aaff;
+
+
+
+
+    /*
+        Espaça as letras.
+
+        Dá aparência de título premium.
+
+    */
+
+    letter-spacing:3px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
+    Título principal da seção Sobre.
+
+*/
+
+
+.sobre h2 {
+
+
+    /*
+        Fonte responsiva.
+
+        Mínimo: 32px
+        Ideal: 4vw
+        Máximo: 45px
+
+    */
+
+    font-size:clamp(32px,4vw,45px);
+
+
+
+
+    /*
+        Espaçamento:
+
+        20px cima/baixo
+
+    */
+
+    margin:20px 0;
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
+    Texto de descrição da barbearia.
+
+*/
+
+
+.sobre p {
+
+
+    /*
+        Cor cinza.
+
+        Menos destaque que o título.
+
+    */
+
+    color:#ccc;
+
+
+
+
+    /*
+        Espaçamento entre linhas.
+
+        Melhora leitura.
+
+    */
+
+    line-height:1.8;
+
+
+
+
+    font-size:19px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================= IMAGEM SOBRE ================= */
+
+
+/*
+    Container da imagem.
+
+*/
+
+.sobre-imagem {
+
+
+    /*
+        Ativa Flexbox.
+
+    */
+
+    display:flex;
+
+
+
+
+    /*
+        Centraliza a imagem.
+
+    */
+
+    justify-content:center;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Imagem da barbearia.
+
+*/
+
+
+.sobre-imagem img {
+
+
+
+    /*
+        Largura da imagem.
+
+    */
+
+    width:420px;
+
+
+
+
+    /*
+        Altura da imagem.
+
+    */
+
+    height:450px;
+
+
+
+
+    /*
+        Evita ultrapassar o espaço disponível.
+
+    */
+
+    max-width:100%;
+
+
+
+
+    /*
+        Faz a imagem preencher
+        sem distorcer.
+
+    */
+
+    object-fit:cover;
+
+
+
+
+    /*
+        Arredonda os cantos.
+
+    */
+
+    border-radius:20px;
+
+
+
+
+    /*
+        Cria brilho azul em volta.
+
+    */
+
+    box-shadow:0 0 30px rgba(0,170,255,0.4);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================= CARDS SOBRE ================= */
+
+
+/*
+    Cards:
+
+    5+
+    1000+
+    6 serviços
+
+*/
+
+
+.sobre-info {
+
+
+
+    /*
+        Faz o elemento ocupar
+        todas as colunas do Grid.
+
+        Ou seja:
+        ele fica abaixo da imagem e texto.
+
+    */
+
+    grid-column:1 / -1;
+
+
+
+
+    display:flex;
+
+
+
+
+    /*
+        Centraliza os cards.
+
+    */
+
+    justify-content:center;
+
+
+
+
+    /*
+        Espaço entre eles.
+
+    */
+
+    gap:30px;
+
+
+
+
+    /*
+        Permite quebrar linha no celular.
+
+    */
+
+    flex-wrap:wrap;
+
+
+
+
+    margin-top:40px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Cada card de informação.
+
+*/
+
+
+.info-card {
+
+
+
+    background:#0b1228;
+
+
+
+
+    padding:30px;
+
+
+
+
+    border-radius:15px;
+
+
+
+
+    text-align:center;
+
+
+
+
+    width:150px;
+
+
+
+
+    transition:0.3s;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Efeito ao passar mouse.
+
+*/
+
+
+.info-card:hover {
+
+
+
+    transform:translateY(-10px);
+
+
+
+
+    box-shadow:0 0 20px #00aaff;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Número grande:
+
+    5+
+    1000+
+    6
+
+*/
+
+
+.info-card h3 {
+
+
+
+    color:#00aaff;
+
+
+
+
+    font-size:35px;
+
+
+
+
+    margin-bottom:10px;
+
+
+
+}
+
+
+
+
+
+
+
+
+.info-card p {
+
+
+
+    font-size:14px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================= CONTATO ================= */
+
+
+/*
+    Área final antes do rodapé.
+
+*/
+
+
+.contato {
+
+
+    padding:100px 8%;
+
+
+
+
+    /*
+        Centraliza tudo.
+
+    */
+
+    text-align:center;
+
+
+
+
+    /*
+        Fundo diferente para destacar.
+
+    */
+
+    background:#0b1228;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Título do contato.
+
+*/
+
+
+.contato h2 {
+
+
+
+    color:#00aaff;
+
+
+
+
+    font-size:clamp(32px,4vw,45px);
+
+
+
+
+    margin-bottom:20px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Textos do contato.
+
+*/
+
+
+.contato p {
+
+
+    color:#ccc;
+
+
+
+
+    font-size:18px;
+
+
+
+
+    line-height:1.7;
+
+
+
+}
+
+/* ================= RODAPÉ ================= */
+
+
+/*
+    Parte final do site.
+
+    Normalmente contém:
+    - nome da empresa
+    - links rápidos
+    - direitos autorais
+
+*/
+
+
+footer {
+
+
+
+    /*
+        Fundo mais escuro que o restante
+        do site para criar separação.
+
+    */
+
+    background:#030510;
+
+
+
+
+    /*
+        Espaçamento interno.
+
+    */
+
+    padding:40px 8%;
+
+
+
+
+    /*
+        Centraliza os elementos.
+
+    */
+
+    text-align:center;
+
+
+
+
+    /*
+        Linha azul no topo do rodapé.
+
+    */
+
+    border-top:1px solid #00aaff;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
+    Nome da barbearia no rodapé.
+
+*/
+
+
+footer h3 {
+
+
+
+    color:#00aaff;
+
+
+
+
+    font-size:28px;
+
+
+
+
+    margin-bottom:15px;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
+    Texto do rodapé.
+
+*/
+
+
+footer p {
+
+
+
+    color:#ccc;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
+    Área que contém os links:
+
+    Início
+    Serviços
+    Sobre
+    Contato
+
+*/
+
+
+.footer-links {
+
+
+
+    /*
+        Espaço acima e abaixo dos links.
+
+    */
+
+    margin:25px 0;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Links do rodapé.
+
+*/
+
+
+.footer-links a {
+
+
+
+    color:white;
+
+
+
+
+    /*
+        Remove sublinhado.
+
+    */
+
+    text-decoration:none;
+
+
+
+
+    /*
+        Espaçamento lateral.
+
+    */
+
+    margin:0 15px;
+
+
+
+
+    transition:0.3s;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Efeito ao passar mouse
+    nos links.
+
+*/
+
+
+.footer-links a:hover {
+
+
+
+    color:#00aaff;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Texto:
+
+    © 2026 Barbearia...
+
+*/
+
+
+.copyright {
+
+
+
+    margin-top:25px;
+
+
+
+
+    font-size:14px;
+
+
+
+
+    /*
+        Cor mais apagada.
+
+    */
+
+    color:#777;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================= ANIMAÇÃO ================= */
+
+
+/*
+    Cria uma animação chamada "aparecer".
+
+    Ela será usada no título e texto
+    da primeira seção.
+
+*/
+
+
+@keyframes aparecer {
+
+
+
+    /*
+        Estado inicial.
+
+    */
+
+
+    from {
+
+
+
+        /*
+            Elemento invisível.
+
+        */
+
+        opacity:0;
+
+
+
+
+        /*
+            Começa 30px abaixo.
+
+        */
+
+        transform:translateY(30px);
+
+
+
+    }
+
+
+
+
+
+
+
+    /*
+        Estado final.
+
+    */
+
+
+    to {
+
+
+
+        /*
+            Elemento totalmente visível.
+
+        */
+
+        opacity:1;
+
+
+
+
+        /*
+            Volta para posição normal.
+
+        */
+
+        transform:translateY(0);
+
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================= CELULAR ================= */
+
+
+/*
+    Media Query.
+
+    Serve para mudar o CSS quando
+    a tela fica menor.
+
+    Aqui:
+    celulares e tablets.
+
+*/
+
+
+@media(max-width:768px){
+
+
+
+
+
+
+
+/*
+    HEADER NO CELULAR
+
+    No computador:
+    logo + menu lado a lado.
+
+    No celular:
+    fica um embaixo do outro.
+
+*/
+
+
+header {
+
+
+    /*
+        Organiza em coluna.
+
+    */
+
+    flex-direction:column;
+
+
+
+
+    /*
+        Espaço entre logo e menu.
+
+    */
+
+    gap:20px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    MENU NO CELULAR.
+
+*/
+
+
+nav {
+
+
+
+    /*
+        Ativa Flexbox.
+
+    */
+
+    display:flex;
+
+
+
+
+    /*
+        Coloca os links em coluna.
+
+    */
+
+    flex-direction:column;
+
+
+
+
+    /*
+        Centraliza.
+
+    */
+
+    align-items:center;
+
+
+
+
+    /*
+        Espaçamento entre links.
+
+    */
+
+    gap:15px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Remove o espaço lateral
+    dos links no celular.
+
+*/
+
+nav a {
+
+
+
+    margin-left:0;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    PRIMEIRA SEÇÃO NO CELULAR.
+
+*/
+
+
+.inicio {
+
+
+
+    /*
+        Centraliza o texto.
+
+    */
+
+    text-align:center;
+
+
+
+
+    /*
+        Diminui espaço lateral.
+
+    */
+
+    padding:0 5%;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Texto menor no celular.
+
+*/
+
+.inicio p {
+
+
+
+    font-size:16px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Botão adaptado.
+
+*/
+
+button {
+
+
+
+    /*
+        Ocupa toda largura disponível.
+
+    */
+
+    width:100%;
+
+
+
+
+    /*
+        Limita para não ficar gigante.
+
+    */
+
+    max-width:250px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Serviços com menos espaço
+    nas laterais.
+
+*/
+
+.servicos {
+
+
+
+    padding:60px 5%;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Cards ocupam quase toda tela.
+
+*/
+
+.card {
+
+
+
+    width:100%;
+
+
+
+
+    max-width:350px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    SOBRE NO CELULAR.
+
+    Antes:
+
+    imagem | texto
+
+    Depois:
+
+    imagem
+
+    texto
+
+*/
+
+
+.sobre {
+
+
+
+    /*
+        Apenas uma coluna.
+
+    */
+
+    grid-template-columns:1fr;
+
+
+
+
+    text-align:center;
+
+
+
+
+    padding:80px 5%;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Imagem menor.
+
+*/
+
+.sobre-imagem img {
+
+
+
+    width:100%;
+
+
+
+
+    max-width:350px;
+
+
+
+
+    height:350px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Cards de informação menores.
+
+*/
+
+.info-card {
+
+
+
+    width:140px;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Contato com menos espaçamento.
+
+*/
+
+.contato {
+
+
+
+    padding:70px 5%;
+
+
+
+}
+
+
+
+
+
+
+
+
+/*
+    Rodapé menor.
+
+*/
+
+footer {
+
+
+
+    padding:40px 5%;
+
+
+
+}
+
+
+
+}
