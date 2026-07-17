@@ -1,48 +1,45 @@
-# Barber Flow 💈
+# 💈 Barber Flow
 
-Sistema web para gerenciamento de barbearia desenvolvido para portfólio.
-
-## 📌 Sobre o projeto
-
-O Barber Flow é um projeto de desenvolvimento web criado com o objetivo de simular um sistema para uma barbearia.
-
-Atualmente o projeto conta com uma página institucional apresentando a barbearia, serviços, informações de contato e uma interface responsiva para diferentes dispositivos.
-
-O projeto está em evolução e futuramente contará com integração de backend, banco de dados e funcionalidades de gerenciamento de agendamentos.
+Sistema de gerenciamento para barbearias, desenvolvido para facilitar o controle de clientes, serviços e agendamentos.
 
 ## 🚀 Tecnologias utilizadas
 
 ### Frontend
-- HTML5
-- CSS3
+- HTML
+- CSS
 - JavaScript
 
-### Backend (em desenvolvimento)
+### Backend
 - Node.js
+- Express
 
-### Banco de dados (planejado)
+### Banco de dados
 - MySQL
 
-## 📂 Estrutura do projeto
+### Ferramentas
+- Git e GitHub
+- Insomnia
+- MySQL Workbench
 
-## 🔧 Funcionalidades atuais
+## 📁 Estrutura do projeto
 
-✅ Página inicial da barbearia  
-✅ Apresentação dos serviços  
-✅ Seção sobre a empresa  
-✅ Formulário de contato  
-✅ Layout responsivo para dispositivos móveis  
+## ✅ Funcionalidades atuais
 
-## 🔜 Próximas implementações
+- [x] API Express configurada
+- [x] Conexão com MySQL
+- [x] Cadastro de clientes
+- [x] Listagem de clientes
 
-- [ ] Criar API para o sistema
-- [ ] Integração com banco de dados MySQL
-- [ ] Sistema de agendamento de horários
-- [ ] Cadastro de clientes
+## 🔄 Próximas funcionalidades
+
+- [ ] Buscar cliente por ID
+- [ ] Atualizar clientes
+- [ ] Excluir clientes
+- [ ] Cadastro de barbeiros
+- [ ] Cadastro de serviços
+- [ ] Sistema de agendamentos
 - [ ] Painel administrativo
 
-## 👨‍💻 Autor
+## 📌 Objetivo
 
-Matheus Henrique de Oliveira
-
-Projeto desenvolvido para estudos e aprimoramento em desenvolvimento web.
+Projeto desenvolvido para estudo de desenvolvimento web, aplicando conceitos de frontend, backend, banco de dados e APIs REST.
