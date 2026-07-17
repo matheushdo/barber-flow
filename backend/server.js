@@ -1,5 +1,7 @@
 const express = require("express");
 
+require("./database/conexao");
+
 const app = express();
 
 const PORT = 3000;

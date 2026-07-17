@@ -1,31 +1,57 @@
-let clientes = [
-    {
-        id: 1,
-        nome: "João",
-        telefone: "47999999999"
-    },
-    {
-        id: 2,
-        nome: "Carlos",
-        telefone: "47888888888"
-    }
-];
+const conexao = require("../database/conexao");
 
 
+// Buscar clientes no banco
 exports.listarClientes = (req, res) => {
-    res.json(clientes);
+
+    const sql = "SELECT * FROM clientes";
+
+    conexao.query(sql, (erro, resultado) => {
+
+        if (erro) {
+            console.log(erro);
+            res.status(500).json({
+                erro: "Erro ao buscar clientes"
+            });
+            return;
+        }
+
+        res.json(resultado);
+    });
+
 };
 
 
+
+// Criar cliente no banco
 exports.criarCliente = (req, res) => {
 
-    const novoCliente = {
-        id: clientes.length + 1,
-        nome: req.body.nome,
-        telefone: req.body.telefone
-    };
+    const { nome, telefone } = req.body;
 
-    clientes.push(novoCliente);
+    const sql = `
+        INSERT INTO clientes (nome, telefone)
+        VALUES (?, ?)
+    `;
 
-    res.json(novoCliente);
+
+    conexao.query(sql, [nome, telefone], (erro, resultado) => {
+
+        if (erro) {
+            console.log(erro);
+            res.status(500).json({
+                erro: "Erro ao cadastrar cliente"
+            });
+            return;
+        }
+
+
+        res.json({
+            mensagem: "Cliente cadastrado com sucesso!",
+            id: resultado.insertId,
+            nome,
+            telefone
+        });
+
+    });
+
 };
