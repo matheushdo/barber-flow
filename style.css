@@ -445,13 +445,11 @@ nav a:hover::after {
     background-image:
 
 
-    linear-gradient(
-        rgba(5,8,22,0.7),
-        rgba(5,8,22,0.9)
-    ),
+        linear-gradient(rgba(5, 8, 22, 0.7),
+            rgba(5, 8, 22, 0.9)),
 
 
-    url("imagens/barbearia.jpg");
+        url("imagens/barbearia.jpg");
 
 
 
@@ -476,6 +474,7 @@ nav a:hover::after {
 
 
 }
+
 /* ================= TEXTO DO INÍCIO ================= */
 
 
@@ -501,7 +500,7 @@ nav a:hover::after {
         Tamanho da letra.
     */
 
-    font-size:18px;
+    font-size: 18px;
 
 
 
@@ -512,7 +511,7 @@ nav a:hover::after {
         Deixa com aparência mais premium.
     */
 
-    letter-spacing:3px;
+    letter-spacing: 3px;
 
 
 
@@ -521,7 +520,7 @@ nav a:hover::after {
         Espaço abaixo do texto.
     */
 
-    margin-bottom:15px;
+    margin-bottom: 15px;
 
 
 }
@@ -553,7 +552,7 @@ nav a:hover::after {
     */
 
 
-    font-size:clamp(35px,5vw,50px);
+    font-size: clamp(35px, 5vw, 50px);
 
 
 
@@ -589,14 +588,14 @@ nav a:hover::after {
         Espaço acima do parágrafo.
     */
 
-    margin-top:20px;
+    margin-top: 20px;
 
 
 
 
     /* Tamanho da fonte */
 
-    font-size:20px;
+    font-size: 20px;
 
 
 
@@ -607,7 +606,7 @@ nav a:hover::after {
 
     */
 
-    max-width:500px;
+    max-width: 500px;
 
 
 
@@ -650,21 +649,21 @@ button {
         Espaço acima do botão.
     */
 
-    margin-top:30px;
+    margin-top: 30px;
 
 
 
 
     /* Largura fixa */
 
-    width:200px;
+    width: 200px;
 
 
 
 
     /* Espaçamento interno */
 
-    padding:15px;
+    padding: 15px;
 
 
 
@@ -672,7 +671,7 @@ button {
 
     /* Cor azul principal */
 
-    background:#00aaff;
+    background: #00aaff;
 
 
 
@@ -681,7 +680,7 @@ button {
         Remove borda padrão.
     */
 
-    border:none;
+    border: none;
 
 
 
@@ -690,28 +689,28 @@ button {
         Deixa o botão arredondado.
     */
 
-    border-radius:30px;
+    border-radius: 30px;
 
 
 
 
     /* Cor do texto */
 
-    color:white;
+    color: white;
 
 
 
 
     /* Tamanho da letra */
 
-    font-size:16px;
+    font-size: 16px;
 
 
 
 
     /* Texto em negrito */
 
-    font-weight:bold;
+    font-weight: bold;
 
 
 
@@ -722,7 +721,7 @@ button {
 
     */
 
-    cursor:pointer;
+    cursor: pointer;
 
 
 
@@ -732,7 +731,7 @@ button {
 
     */
 
-    transition:0.3s;
+    transition: 0.3s;
 
 
 
@@ -742,7 +741,7 @@ button {
 
     */
 
-    box-shadow:0 0 15px #00aaff;
+    box-shadow: 0 0 15px #00aaff;
 
 
 
@@ -769,7 +768,7 @@ button:hover {
 
     */
 
-    transform:scale(1.08);
+    transform: scale(1.08);
 
 
 
@@ -779,7 +778,7 @@ button:hover {
 
     */
 
-    background:#0088cc;
+    background: #0088cc;
 
 
 
@@ -789,7 +788,7 @@ button:hover {
 
     */
 
-    box-shadow:0 0 30px #00aaff;
+    box-shadow: 0 0 30px #00aaff;
 
 
 
@@ -824,7 +823,7 @@ button:hover {
 
     */
 
-    padding:80px 8%;
+    padding: 80px 8%;
 
 
 
@@ -834,7 +833,7 @@ button:hover {
 
     */
 
-    text-align:center;
+    text-align: center;
 
 
 
@@ -857,7 +856,7 @@ button:hover {
 
 
 
-    font-size:40px;
+    font-size: 40px;
 
 
 
@@ -868,12 +867,12 @@ button:hover {
 
     */
 
-    margin-bottom:50px;
+    margin-bottom: 50px;
 
 
 
 
-    color:#00aaff;
+    color: #00aaff;
 
 
 
@@ -904,7 +903,7 @@ button:hover {
 
     */
 
-    display:flex;
+    display: flex;
 
 
 
@@ -914,7 +913,7 @@ button:hover {
 
     */
 
-    justify-content:center;
+    justify-content: center;
 
 
 
@@ -924,7 +923,7 @@ button:hover {
 
     */
 
-    gap:30px;
+    gap: 30px;
 
 
 
@@ -938,7 +937,7 @@ button:hover {
 
     */
 
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 
 
 
@@ -965,7 +964,7 @@ button:hover {
 
     */
 
-    background:#0b1228;
+    background: #0b1228;
 
 
 
@@ -975,7 +974,7 @@ button:hover {
 
     */
 
-    width:300px;
+    width: 300px;
 
 
 
@@ -985,7 +984,7 @@ button:hover {
 
     */
 
-    padding:30px;
+    padding: 30px;
 
 
 
@@ -995,7 +994,7 @@ button:hover {
 
     */
 
-    border-radius:15px;
+    border-radius: 15px;
 
 
 
@@ -1005,7 +1004,7 @@ button:hover {
 
     */
 
-    transition:0.3s;
+    transition: 0.3s;
 
 
 
@@ -1034,7 +1033,7 @@ button:hover {
 
     */
 
-    transform:translateY(-10px);
+    transform: translateY(-10px);
 
 
 
@@ -1044,7 +1043,7 @@ button:hover {
 
     */
 
-    box-shadow:0 0 20px #00aaff;
+    box-shadow: 0 0 20px #00aaff;
 
 
 
@@ -1070,12 +1069,12 @@ button:hover {
 
     */
 
-    margin-bottom:20px;
+    margin-bottom: 20px;
 
 
 
 
-    font-size:25px;
+    font-size: 25px;
 
 
 }
@@ -1101,7 +1100,7 @@ button:hover {
 
     */
 
-    color:#ccc;
+    color: #ccc;
 
 
 
@@ -1111,7 +1110,7 @@ button:hover {
 
     */
 
-    line-height:1.5;
+    line-height: 1.5;
 
 
 
@@ -1137,31 +1136,32 @@ button:hover {
 
     */
 
-    display:block;
+    display: block;
 
 
 
 
-    margin-top:20px;
+    margin-top: 20px;
 
 
 
 
-    color:#00aaff;
+    color: #00aaff;
 
 
 
 
-    font-size:22px;
+    font-size: 22px;
 
 
 
 
-    font-weight:bold;
+    font-weight: bold;
 
 
 
 }
+
 /* ================= SOBRE ================= */
 
 
@@ -1188,7 +1188,7 @@ button:hover {
 
     */
 
-    padding:120px 8%;
+    padding: 120px 8%;
 
 
 
@@ -1198,7 +1198,7 @@ button:hover {
 
     */
 
-    display:grid;
+    display: grid;
 
 
 
@@ -1210,7 +1210,7 @@ button:hover {
 
     */
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
 
 
@@ -1221,7 +1221,7 @@ button:hover {
 
     */
 
-    align-items:center;
+    align-items: center;
 
 
 
@@ -1231,7 +1231,7 @@ button:hover {
 
     */
 
-    gap:60px;
+    gap: 60px;
 
 
 
@@ -1261,7 +1261,7 @@ button:hover {
 
     */
 
-    max-width:550px;
+    max-width: 550px;
 
 
 }
@@ -1284,7 +1284,7 @@ button:hover {
 .sobre span {
 
 
-    color:#00aaff;
+    color: #00aaff;
 
 
 
@@ -1296,7 +1296,7 @@ button:hover {
 
     */
 
-    letter-spacing:3px;
+    letter-spacing: 3px;
 
 
 }
@@ -1327,7 +1327,7 @@ button:hover {
 
     */
 
-    font-size:clamp(32px,4vw,45px);
+    font-size: clamp(32px, 4vw, 45px);
 
 
 
@@ -1339,7 +1339,7 @@ button:hover {
 
     */
 
-    margin:20px 0;
+    margin: 20px 0;
 
 
 }
@@ -1368,7 +1368,7 @@ button:hover {
 
     */
 
-    color:#ccc;
+    color: #ccc;
 
 
 
@@ -1380,12 +1380,12 @@ button:hover {
 
     */
 
-    line-height:1.8;
+    line-height: 1.8;
 
 
 
 
-    font-size:19px;
+    font-size: 19px;
 
 
 
@@ -1415,7 +1415,7 @@ button:hover {
 
     */
 
-    display:flex;
+    display: flex;
 
 
 
@@ -1425,7 +1425,7 @@ button:hover {
 
     */
 
-    justify-content:center;
+    justify-content: center;
 
 
 
@@ -1453,7 +1453,7 @@ button:hover {
 
     */
 
-    width:420px;
+    width: 420px;
 
 
 
@@ -1463,7 +1463,7 @@ button:hover {
 
     */
 
-    height:450px;
+    height: 450px;
 
 
 
@@ -1473,7 +1473,7 @@ button:hover {
 
     */
 
-    max-width:100%;
+    max-width: 100%;
 
 
 
@@ -1484,7 +1484,7 @@ button:hover {
 
     */
 
-    object-fit:cover;
+    object-fit: cover;
 
 
 
@@ -1494,7 +1494,7 @@ button:hover {
 
     */
 
-    border-radius:20px;
+    border-radius: 20px;
 
 
 
@@ -1504,7 +1504,7 @@ button:hover {
 
     */
 
-    box-shadow:0 0 30px rgba(0,170,255,0.4);
+    box-shadow: 0 0 30px rgba(0, 170, 255, 0.4);
 
 
 
@@ -1544,12 +1544,12 @@ button:hover {
 
     */
 
-    grid-column:1 / -1;
+    grid-column: 1 / -1;
 
 
 
 
-    display:flex;
+    display: flex;
 
 
 
@@ -1559,7 +1559,7 @@ button:hover {
 
     */
 
-    justify-content:center;
+    justify-content: center;
 
 
 
@@ -1569,7 +1569,7 @@ button:hover {
 
     */
 
-    gap:30px;
+    gap: 30px;
 
 
 
@@ -1579,12 +1579,12 @@ button:hover {
 
     */
 
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 
 
 
 
-    margin-top:40px;
+    margin-top: 40px;
 
 
 
@@ -1607,32 +1607,32 @@ button:hover {
 
 
 
-    background:#0b1228;
+    background: #0b1228;
 
 
 
 
-    padding:30px;
+    padding: 30px;
 
 
 
 
-    border-radius:15px;
+    border-radius: 15px;
 
 
 
 
-    text-align:center;
+    text-align: center;
 
 
 
 
-    width:150px;
+    width: 150px;
 
 
 
 
-    transition:0.3s;
+    transition: 0.3s;
 
 
 
@@ -1655,12 +1655,12 @@ button:hover {
 
 
 
-    transform:translateY(-10px);
+    transform: translateY(-10px);
 
 
 
 
-    box-shadow:0 0 20px #00aaff;
+    box-shadow: 0 0 20px #00aaff;
 
 
 
@@ -1687,17 +1687,17 @@ button:hover {
 
 
 
-    color:#00aaff;
+    color: #00aaff;
 
 
 
 
-    font-size:35px;
+    font-size: 35px;
 
 
 
 
-    margin-bottom:10px;
+    margin-bottom: 10px;
 
 
 
@@ -1714,7 +1714,7 @@ button:hover {
 
 
 
-    font-size:14px;
+    font-size: 14px;
 
 
 
@@ -1740,7 +1740,7 @@ button:hover {
 .contato {
 
 
-    padding:100px 8%;
+    padding: 100px 8%;
 
 
 
@@ -1750,7 +1750,7 @@ button:hover {
 
     */
 
-    text-align:center;
+    text-align: center;
 
 
 
@@ -1760,7 +1760,7 @@ button:hover {
 
     */
 
-    background:#0b1228;
+    background: #0b1228;
 
 
 
@@ -1783,17 +1783,17 @@ button:hover {
 
 
 
-    color:#00aaff;
+    color: #00aaff;
 
 
 
 
-    font-size:clamp(32px,4vw,45px);
+    font-size: clamp(32px, 4vw, 45px);
 
 
 
 
-    margin-bottom:20px;
+    margin-bottom: 20px;
 
 
 
@@ -1815,17 +1815,17 @@ button:hover {
 .contato p {
 
 
-    color:#ccc;
+    color: #ccc;
 
 
 
 
-    font-size:18px;
+    font-size: 18px;
 
 
 
 
-    line-height:1.7;
+    line-height: 1.7;
 
 
 
@@ -1855,7 +1855,7 @@ footer {
 
     */
 
-    background:#030510;
+    background: #030510;
 
 
 
@@ -1865,7 +1865,7 @@ footer {
 
     */
 
-    padding:40px 8%;
+    padding: 40px 8%;
 
 
 
@@ -1875,7 +1875,7 @@ footer {
 
     */
 
-    text-align:center;
+    text-align: center;
 
 
 
@@ -1885,7 +1885,7 @@ footer {
 
     */
 
-    border-top:1px solid #00aaff;
+    border-top: 1px solid #00aaff;
 
 
 
@@ -1909,17 +1909,17 @@ footer h3 {
 
 
 
-    color:#00aaff;
+    color: #00aaff;
 
 
 
 
-    font-size:28px;
+    font-size: 28px;
 
 
 
 
-    margin-bottom:15px;
+    margin-bottom: 15px;
 
 
 
@@ -1943,7 +1943,7 @@ footer p {
 
 
 
-    color:#ccc;
+    color: #ccc;
 
 
 
@@ -1977,7 +1977,7 @@ footer p {
 
     */
 
-    margin:25px 0;
+    margin: 25px 0;
 
 
 
@@ -2000,7 +2000,7 @@ footer p {
 
 
 
-    color:white;
+    color: white;
 
 
 
@@ -2010,7 +2010,7 @@ footer p {
 
     */
 
-    text-decoration:none;
+    text-decoration: none;
 
 
 
@@ -2020,12 +2020,12 @@ footer p {
 
     */
 
-    margin:0 15px;
+    margin: 0 15px;
 
 
 
 
-    transition:0.3s;
+    transition: 0.3s;
 
 
 
@@ -2049,7 +2049,7 @@ footer p {
 
 
 
-    color:#00aaff;
+    color: #00aaff;
 
 
 
@@ -2074,12 +2074,12 @@ footer p {
 
 
 
-    margin-top:25px;
+    margin-top: 25px;
 
 
 
 
-    font-size:14px;
+    font-size: 14px;
 
 
 
@@ -2089,7 +2089,7 @@ footer p {
 
     */
 
-    color:#777;
+    color: #777;
 
 
 
@@ -2134,7 +2134,7 @@ footer p {
 
         */
 
-        opacity:0;
+        opacity: 0;
 
 
 
@@ -2144,7 +2144,7 @@ footer p {
 
         */
 
-        transform:translateY(30px);
+        transform: translateY(30px);
 
 
 
@@ -2171,7 +2171,7 @@ footer p {
 
         */
 
-        opacity:1;
+        opacity: 1;
 
 
 
@@ -2181,7 +2181,7 @@ footer p {
 
         */
 
-        transform:translateY(0);
+        transform: translateY(0);
 
 
 
@@ -2214,7 +2214,7 @@ footer p {
 */
 
 
-@media(max-width:768px){
+@media(max-width:768px) {
 
 
 
@@ -2222,7 +2222,7 @@ footer p {
 
 
 
-/*
+    /*
     HEADER NO CELULAR
 
     No computador:
@@ -2234,266 +2234,266 @@ footer p {
 */
 
 
-header {
+    header {
 
 
-    /*
+        /*
         Organiza em coluna.
 
     */
 
-    flex-direction:column;
+        flex-direction: column;
+
+
+
+
+        /*
+        Espaço entre logo e menu.
+
+    */
+
+        gap: 20px;
+
+
+
+    }
+
+
+
+
 
 
 
 
     /*
-        Espaço entre logo e menu.
-
-    */
-
-    gap:20px;
-
-
-
-}
-
-
-
-
-
-
-
-
-/*
     MENU NO CELULAR.
 
 */
 
 
-nav {
+    nav {
 
 
 
-    /*
+        /*
         Ativa Flexbox.
 
     */
 
-    display:flex;
+        display: flex;
 
 
 
 
-    /*
+        /*
         Coloca os links em coluna.
 
     */
 
-    flex-direction:column;
+        flex-direction: column;
 
 
 
 
-    /*
+        /*
         Centraliza.
 
     */
 
-    align-items:center;
+        align-items: center;
+
+
+
+
+        /*
+        Espaçamento entre links.
+
+    */
+
+        gap: 15px;
+
+
+
+    }
+
+
+
+
 
 
 
 
     /*
-        Espaçamento entre links.
-
-    */
-
-    gap:15px;
-
-
-
-}
-
-
-
-
-
-
-
-
-/*
     Remove o espaço lateral
     dos links no celular.
 
 */
 
-nav a {
+    nav a {
 
 
 
-    margin-left:0;
+        margin-left: 0;
 
 
 
-}
-
-
-
-
+    }
 
 
 
 
-/*
+
+
+
+
+    /*
     PRIMEIRA SEÇÃO NO CELULAR.
 
 */
 
 
-.inicio {
+    .inicio {
 
 
 
-    /*
+        /*
         Centraliza o texto.
 
     */
 
-    text-align:center;
+        text-align: center;
 
 
 
 
-    /*
+        /*
         Diminui espaço lateral.
 
     */
 
-    padding:0 5%;
+        padding: 0 5%;
 
 
 
-}
-
-
-
-
+    }
 
 
 
 
-/*
+
+
+
+
+    /*
     Texto menor no celular.
 
 */
 
-.inicio p {
+    .inicio p {
 
 
 
-    font-size:16px;
+        font-size: 16px;
 
 
 
-}
-
-
-
-
+    }
 
 
 
 
-/*
+
+
+
+
+    /*
     Botão adaptado.
 
 */
 
-button {
+    button {
 
 
 
-    /*
+        /*
         Ocupa toda largura disponível.
 
     */
 
-    width:100%;
+        width: 100%;
+
+
+
+
+        /*
+        Limita para não ficar gigante.
+
+    */
+
+        max-width: 250px;
+
+
+
+    }
+
+
+
+
 
 
 
 
     /*
-        Limita para não ficar gigante.
-
-    */
-
-    max-width:250px;
-
-
-
-}
-
-
-
-
-
-
-
-
-/*
     Serviços com menos espaço
     nas laterais.
 
 */
 
-.servicos {
+    .servicos {
 
 
 
-    padding:60px 5%;
+        padding: 60px 5%;
 
 
 
-}
-
-
-
-
+    }
 
 
 
 
-/*
+
+
+
+
+    /*
     Cards ocupam quase toda tela.
 
 */
 
-.card {
+    .card {
 
 
 
-    width:100%;
-
-
-
-
-    max-width:350px;
-
-
-
-}
+        width: 100%;
 
 
 
 
+        max-width: 350px;
+
+
+
+    }
 
 
 
 
-/*
+
+
+
+
+    /*
     SOBRE NO CELULAR.
 
     Antes:
@@ -2509,128 +2509,128 @@ button {
 */
 
 
-.sobre {
+    .sobre {
 
 
 
-    /*
+        /*
         Apenas uma coluna.
 
     */
 
-    grid-template-columns:1fr;
+        grid-template-columns: 1fr;
 
 
 
 
-    text-align:center;
+        text-align: center;
 
 
 
 
-    padding:80px 5%;
+        padding: 80px 5%;
 
 
 
-}
-
-
-
-
+    }
 
 
 
 
-/*
+
+
+
+
+    /*
     Imagem menor.
 
 */
 
-.sobre-imagem img {
+    .sobre-imagem img {
 
 
 
-    width:100%;
-
-
-
-
-    max-width:350px;
+        width: 100%;
 
 
 
 
-    height:350px;
-
-
-
-}
+        max-width: 350px;
 
 
 
 
+        height: 350px;
+
+
+
+    }
 
 
 
 
-/*
+
+
+
+
+    /*
     Cards de informação menores.
 
 */
 
-.info-card {
+    .info-card {
 
 
 
-    width:140px;
+        width: 140px;
 
 
 
-}
-
-
-
-
+    }
 
 
 
 
-/*
+
+
+
+
+    /*
     Contato com menos espaçamento.
 
 */
 
-.contato {
+    .contato {
 
 
 
-    padding:70px 5%;
+        padding: 70px 5%;
 
 
 
-}
-
-
-
-
+    }
 
 
 
 
-/*
+
+
+
+
+    /*
     Rodapé menor.
 
 */
 
-footer {
+    footer {
 
 
 
-    padding:40px 5%;
+        padding: 40px 5%;
 
 
 
-}
+    }
 
 
 
