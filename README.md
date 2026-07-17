@@ -21,14 +21,33 @@ Sistema de gerenciamento para barbearias, desenvolvido para facilitar o controle
 - Insomnia
 - MySQL Workbench
 
+
 ## 📁 Estrutura do projeto
+
 
 ## ✅ Funcionalidades atuais
 
-- [x] API Express configurada
-- [x] Conexão com MySQL
+### Clientes
 - [x] Cadastro de clientes
 - [x] Listagem de clientes
+- [x] Validação de campos obrigatórios
+- [x] Validação de telefone
+
+### Agendamentos
+- [x] Criar agendamento
+- [x] Listar agendamentos
+- [x] Buscar agendamento por ID
+- [x] Atualizar agendamento
+- [x] Excluir agendamento
+- [x] Verificar disponibilidade de horários
+- [x] Bloqueio de horários duplicados
+
+
+## 🔗 Endpoints da API
+
+### Clientes
+
+### Agendamentos
 
 ## 🔄 Próximas funcionalidades
 
@@ -37,8 +56,10 @@ Sistema de gerenciamento para barbearias, desenvolvido para facilitar o controle
 - [ ] Excluir clientes
 - [ ] Cadastro de barbeiros
 - [ ] Cadastro de serviços
-- [ ] Sistema de agendamentos
+- [ ] Controle de horários por barbeiro
+- [ ] Integração do frontend com a API
 - [ ] Painel administrativo
+
 
 ## 📌 Objetivo
 
