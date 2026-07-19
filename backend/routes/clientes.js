@@ -7,4 +7,10 @@ router.get("/", clientesController.listarClientes);
 
 router.post("/", clientesController.criarCliente);
 
+router.get("/:id", clientesController.buscarClientePorId);
+
+router.put("/:id", clientesController.editarCliente);
+
+router.delete("/:id", clientesController.excluirCliente);
+
 module.exports = router;
