@@ -7,19 +7,19 @@ exports.listarAgendamentos = (req, res) => {
     const sql = `
         SELECT 
             agendamentos.id,
-            clientes.nome AS cliente,
+            usuarios.nome AS cliente,
             servicos.nome AS servico,
             DATE_FORMAT(agendamentos.data, '%Y-%m-%d') AS data,
-TIME_FORMAT(agendamentos.horario, '%H:%i') AS horario,
+            TIME_FORMAT(agendamentos.horario, '%H:%i') AS horario,
             agendamentos.criado_em
 
         FROM agendamentos
 
-        INNER JOIN clientes
-        ON agendamentos.cliente_id = clientes.id
+        INNER JOIN usuarios
+        ON agendamentos.usuario_id = usuarios.id
 
         INNER JOIN servicos
-        ON agendamentos.servico_id = servicos.id
+        ON agendamentos.servicio_id = servicos.id
     `;
 
 
@@ -32,12 +32,12 @@ TIME_FORMAT(agendamentos.horario, '%H:%i') AS horario,
             });
         }
 
-
         res.json(resultado);
 
     });
 
 };
+
 
 
 // Buscar agendamento por ID
@@ -49,16 +49,16 @@ exports.buscarAgendamentoPorId = (req, res) => {
     const sql = `
         SELECT 
             agendamentos.id,
-            clientes.nome AS cliente,
+            usuarios.nome AS cliente,
             servicos.nome AS servico,
             DATE_FORMAT(agendamentos.data, '%Y-%m-%d') AS data,
-TIME_FORMAT(agendamentos.horario, '%H:%i') AS horario,
+            TIME_FORMAT(agendamentos.horario, '%H:%i') AS horario,
             agendamentos.criado_em
 
         FROM agendamentos
 
-        INNER JOIN clientes
-        ON agendamentos.cliente_id = clientes.id
+        INNER JOIN usuarios
+        ON agendamentos.usuario_id = usuarios.id
 
         INNER JOIN servicos
         ON agendamentos.servico_id = servicos.id
@@ -91,22 +91,27 @@ TIME_FORMAT(agendamentos.horario, '%H:%i') AS horario,
 };
 
 
+
 // Criar agendamento
 exports.criarAgendamento = (req, res) => {
 
     const {
-        cliente_id,
+        usuario_id,
         servico_id,
         data,
         horario
     } = req.body;
 
 
-    if (!cliente_id || !servico_id || !data || !horario) {
+
+    if (!usuario_id || !servico_id || !data || !horario) {
+
         return res.status(400).json({
-            erro: "Cliente, serviço, data e horário são obrigatórios"
+            erro: "Usuário, serviço, data e horário são obrigatórios"
         });
+
     }
+
 
 
     const verificarSql = `
@@ -115,178 +120,324 @@ exports.criarAgendamento = (req, res) => {
     `;
 
 
+
     conexao.query(
         verificarSql,
         [data, horario],
         (erro, resultado) => {
 
+
             if (erro) {
+
                 console.log(erro);
+
                 return res.status(500).json({
                     erro: "Erro ao verificar horário"
                 });
+
             }
+
 
 
             if (resultado.length > 0) {
+
                 return res.status(400).json({
                     erro: "Horário já ocupado"
                 });
+
             }
+
+
 
 
             const sql = `
                 INSERT INTO agendamentos
-                (cliente_id, servico_id, data, horario)
+                (usuario_id, servico_id, data, horario)
                 VALUES (?, ?, ?, ?)
             `;
 
 
+
             conexao.query(
                 sql,
-                [cliente_id, servico_id, data, horario],
+                [
+                    usuario_id,
+                    servico_id,
+                    data,
+                    horario
+                ],
                 (erro, resultado) => {
 
+
                     if (erro) {
+
                         console.log(erro);
+
                         return res.status(500).json({
                             erro: "Erro ao criar agendamento"
                         });
+
                     }
 
 
+
                     res.json({
-                        mensagem: "Agendamento realizado com sucesso!",
-                        id: resultado.insertId
+
+                        mensagem:
+                        "Agendamento realizado com sucesso!",
+
+                        id:
+                        resultado.insertId
+
                     });
+
 
                 }
             );
 
+
         }
     );
 
+
 };
+
+
 
 
 // Editar agendamento
 exports.editarAgendamento = (req, res) => {
 
+
     const { id } = req.params;
 
+
     const {
-        cliente_id,
+        usuario_id,
         servico_id,
         data,
         horario
     } = req.body;
 
 
-    if (!cliente_id || !servico_id || !data || !horario) {
+
+    if (!usuario_id || !servico_id || !data || !horario) {
+
         return res.status(400).json({
-            erro: "Cliente, serviço, data e horário são obrigatórios"
+
+            erro:
+            "Usuário, serviço, data e horário são obrigatórios"
+
         });
+
     }
 
 
+
     const sql = `
+
         UPDATE agendamentos
-        SET cliente_id = ?, servico_id = ?, data = ?, horario = ?
+
+        SET usuario_id = ?, servico_id = ?, data = ?, horario = ?
+
         WHERE id = ?
+
     `;
 
 
+
     conexao.query(
+
         sql,
-        [cliente_id, servico_id, data, horario, id],
+
+        [
+            usuario_id,
+            servico_id,
+            data,
+            horario,
+            id
+        ],
+
         (erro, resultado) => {
 
+
+
             if (erro) {
+
                 console.log(erro);
+
                 return res.status(500).json({
-                    erro: "Erro ao atualizar agendamento"
+
+                    erro:
+                    "Erro ao atualizar agendamento"
+
                 });
+
             }
 
 
-            if (resultado.affectedRows === 0) {
+
+            if(resultado.affectedRows === 0){
+
                 return res.status(404).json({
-                    erro: "Agendamento não encontrado"
+
+                    erro:
+                    "Agendamento não encontrado"
+
                 });
+
             }
+
 
 
             res.json({
-                mensagem: "Agendamento atualizado com sucesso!"
+
+                mensagem:
+                "Agendamento atualizado com sucesso!"
+
             });
 
+
         }
+
     );
 
+
 };
+
+
 
 
 // Excluir agendamento
 exports.excluirAgendamento = (req, res) => {
 
+
     const { id } = req.params;
 
-    const sql = "DELETE FROM agendamentos WHERE id = ?";
+
+    const sql =
+    "DELETE FROM agendamentos WHERE id = ?";
 
 
-    conexao.query(sql, [id], (erro, resultado) => {
 
-        if (erro) {
-            console.log(erro);
-            return res.status(500).json({
-                erro: "Erro ao excluir agendamento"
+    conexao.query(
+
+        sql,
+
+        [id],
+
+        (erro, resultado)=>{
+
+
+            if(erro){
+
+                console.log(erro);
+
+                return res.status(500).json({
+
+                    erro:
+                    "Erro ao excluir agendamento"
+
+                });
+
+            }
+
+
+
+            if(resultado.affectedRows === 0){
+
+                return res.status(404).json({
+
+                    erro:
+                    "Agendamento não encontrado"
+
+                });
+
+            }
+
+
+
+            res.json({
+
+                mensagem:
+                "Agendamento cancelado com sucesso!"
+
             });
+
+
+
         }
 
+    );
 
-        if (resultado.affectedRows === 0) {
-            return res.status(404).json({
-                erro: "Agendamento não encontrado"
-            });
-        }
-
-
-        res.json({
-            mensagem: "Agendamento cancelado com sucesso!"
-        });
-
-    });
 
 };
 
 
 
-// Verificar horário
-exports.verificarHorario = (req, res) => {
 
-    const { data, horario } = req.params;
+// Verificar horário
+exports.verificarHorario = (req,res)=>{
+
+
+    const {
+        data,
+        horario
+    } = req.params;
+
 
 
     const sql = `
-        SELECT * FROM agendamentos
+
+        SELECT *
+
+        FROM agendamentos
+
         WHERE data = ? AND horario = ?
+
     `;
 
 
-    conexao.query(sql, [data, horario], (erro, resultado) => {
 
-        if (erro) {
-            console.log(erro);
-            return res.status(500).json({
-                erro: "Erro ao verificar horário"
+    conexao.query(
+
+        sql,
+
+        [
+            data,
+            horario
+        ],
+
+        (erro,resultado)=>{
+
+
+            if(erro){
+
+                console.log(erro);
+
+                return res.status(500).json({
+
+                    erro:
+                    "Erro ao verificar horário"
+
+                });
+
+            }
+
+
+
+            res.json({
+
+                disponivel:
+                resultado.length === 0
+
             });
+
+
+
         }
 
+    );
 
-        res.json({
-            disponivel: resultado.length === 0
-        });
-
-    });
 
 };

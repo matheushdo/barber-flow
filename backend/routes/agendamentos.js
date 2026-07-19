@@ -1,22 +1,34 @@
 const express = require("express");
+
 const router = express.Router();
 
-const agendamentoController = require("../controllers/agendamentosController");
+const agendamentosController = require("../controllers/agendamentosController");
 
 
-router.post("/", agendamentoController.criarAgendamento);
+// listar
+router.get("/", agendamentosController.listarAgendamentos);
 
-router.get("/", agendamentoController.listarAgendamentos);
 
-router.get("/:id", agendamentoController.buscarAgendamentoPorId);
+// criar agendamento
+router.post("/", agendamentosController.criarAgendamento);
 
-router.put("/:id", agendamentoController.editarAgendamento);
 
-router.delete("/:id", agendamentoController.excluirAgendamento);
+// buscar por id
+router.get("/:id", agendamentosController.buscarAgendamentoPorId);
 
+
+// editar
+router.put("/:id", agendamentosController.editarAgendamento);
+
+
+// excluir
+router.delete("/:id", agendamentosController.excluirAgendamento);
+
+
+// verificar horário
 router.get(
     "/horario/:data/:horario",
-    agendamentoController.verificarHorario
+    agendamentosController.verificarHorario
 );
 
 
