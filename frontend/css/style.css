@@ -442,15 +442,14 @@ nav a:hover::after {
     */
 
 
-    background-image:
+   background-image:
 
+    linear-gradient(
+        rgba(5, 8, 22, 0.7),
+        rgba(5, 8, 22, 0.9)
+    ),
 
-        linear-gradient(rgba(5, 8, 22, 0.7),
-            rgba(5, 8, 22, 0.9)),
-
-
-        url("imagens/barbearia.jpg");
-
+    url("../imagens/barbearia.jpg");
 
 
 

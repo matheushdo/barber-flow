@@ -20,8 +20,7 @@
 
 
     <!-- Conecta o arquivo HTML com o CSS -->
-    <link rel="stylesheet" href="style.css">
-
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -73,10 +72,10 @@
 
 
 
-            <!-- Vai para a seção contato -->
-            <a href="#contato">
-                Contato
-            </a>
+            <!-- Vai para a seção login -->
+          <a href="login.html" id="loginLink">
+    Entrar
+</a>
 
 
         </nav>
@@ -605,6 +604,78 @@
 -->
 
 
+
+<section class="agendamento" id="agendamento">
+
+
+    <span>
+        AGENDE ONLINE
+    </span>
+
+
+    <h2>
+        Reserve seu horário
+    </h2>
+
+
+
+    <form id="formAgendamento">
+
+
+        <input 
+            type="text"
+            id="nomeAgendamento"
+            placeholder="Seu nome"
+            required
+        >
+
+
+
+        <input 
+            type="text"
+            id="telefoneAgendamento"
+            placeholder="Seu telefone"
+            required
+        >
+
+
+
+        <select id="servicoAgendamento" required>
+
+            <option value="">
+                Escolha o serviço
+            </option>
+
+        </select>
+
+
+
+        <input
+            type="date"
+            id="dataAgendamento"
+            required
+        >
+
+
+
+        <input
+            type="time"
+            id="horarioAgendamento"
+            required
+        >
+
+
+
+        <button type="submit">
+            Agendar horário
+        </button>
+
+
+    </form>
+
+
+</section>
+
         <section class="contato" id="contato">
 
 
@@ -742,6 +813,8 @@
 
 
         </section>
+
+
 
 
 
@@ -909,8 +982,7 @@
 -->
 
 
-    <script src="script.js"></script>
-
+<script src="usuario.js"></script>
 
 
 
