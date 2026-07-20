@@ -55,5 +55,64 @@ router.get("/servicos-populares", (req,res)=>{
 
 });
 
+router.get("/proximos-atendimentos", (req, res) => {
+
+
+    const sql = `
+
+        SELECT 
+            usuarios.nome AS cliente,
+            servicos.nome AS servico,
+            agendamentos.data,
+            agendamentos.horario
+
+        FROM agendamentos
+
+
+        INNER JOIN usuarios
+
+        ON agendamentos.usuario_id = usuarios.id
+
+
+        INNER JOIN servicos
+
+        ON agendamentos.servico_id = servicos.id
+
+
+        WHERE agendamentos.status != 'cancelado'
+
+
+        AND agendamentos.data >= CURDATE()
+
+
+        ORDER BY agendamentos.data, agendamentos.horario
+
+
+        LIMIT 5
+
+    `;
+
+
+    conexao.query(sql, (erro, resultado) => {
+
+
+        if(erro){
+
+            console.log(erro);
+
+            return res.status(500).json({
+                erro:"Erro ao buscar atendimentos"
+            });
+
+        }
+
+
+        res.json(resultado);
+
+
+    });
+
+
+});
 
 module.exports = router;

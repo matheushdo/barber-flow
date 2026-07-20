@@ -3,13 +3,13 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin - Barber Flow</title>
+<title>Admin - Barber Flow</title>
 
-    <link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="admin.css">
 
 </head>
 
@@ -19,162 +19,216 @@
 
 <header class="header">
 
-    <h1>
-        💈 Barber Flow
-    </h1>
+<h1>
+💈 Barber Flow
+</h1>
 
-    <p>
-        Painel Administrativo
-    </p>
+<p>
+Painel Administrativo
+</p>
 
 </header>
 
 
 
+
 <main class="container">
 
-    <!-- GRÁFICO DE SERVIÇOS -->
 
-<section class="card">
+<!-- RESUMO -->
 
-    <h2>
-        Serviços mais realizados
-    </h2>
+<section class="dashboard">
 
 
-    <div class="grafico-container">
+<div class="dashboard-card">
 
-    <canvas id="graficoServicos"></canvas>
+<h3>
+Clientes
+</h3>
+
+<p id="totalClientes">
+0
+</p>
+
+</div>
+
+
+
+<div class="dashboard-card">
+
+<h3>
+Serviços
+</h3>
+
+<p id="totalServicos">
+0
+</p>
+
+</div>
+
+
+
+<div class="dashboard-card">
+
+<h3>
+Faturamento
+</h3>
+
+<p id="faturamento">
+R$ 0
+</p>
+
+</div>
+
+
+
+<div class="dashboard-card">
+
+<h3>
+Agendamentos
+</h3>
+
+<p id="totalAgendamentos">
+0
+</p>
 
 </div>
 
 
 </section>
 
-    <!-- Preparação DASHBOARDS -->
-
-    <section class="dashboard">
-
-
-    <div class="dashboard-card">
-
-        <h3>
-            Clientes
-        </h3>
-
-        <p id="totalClientes">
-            0
-        </p>
-
-    </div>
 
 
 
-    <div class="dashboard-card">
 
-        <h3>
-            Serviços
-        </h3>
-
-        <p id="totalServicos">
-            0
-        </p>
-
-    </div>
+<!-- GRAFICO + AGENDA -->
 
 
+<section class="dashboard-principal">
 
-    <div class="dashboard-card">
 
-        <h3>
-            Faturamento
-        </h3>
+<div class="grafico-card">
 
-        <p id="faturamento">
-            R$ 0
-        </p>
 
-    </div>
+<h2>
+Serviços mais realizados
+</h2>
+
+
+<div class="grafico-container">
+
+<canvas id="graficoServicos"></canvas>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="proximos-box">
+
+
+<h2>
+Próximos atendimentos
+</h2>
+
+
+<div id="listaAtendimentos">
+
+<p>
+Nenhum atendimento próximo.
+</p>
+
+
+</div>
+
+
+</div>
 
 
 </section>
 
 
 
-    <!-- CLIENTES -->
-
-    <section class="card">
-
-
-        <h2>
-            Clientes
-        </h2>
-
-
-
-        <form id="formCliente">
-
-
-            <input 
-            type="text" 
-            id="nome"
-            placeholder="Nome do cliente"
-            >
-
-
-
-            <input 
-            type="text" 
-            id="telefone"
-            placeholder="Telefone"
-            >
-
-
-
-            <button type="submit">
-                Cadastrar
-            </button>
-
-
-
-        </form>
-
-
-
-        <div id="listaClientes">
-
-        </div>
-
-
-
-    </section>
 
 
 
 
-    <!-- SERVIÇOS -->
+<!-- CLIENTES -->
 
 
-    <section class="card">
+<section class="card">
 
 
-        <h2>
-            Serviços
-        </h2>
+<h2>
+Clientes
+</h2>
+
+
+<form id="formCliente">
+
+
+<input 
+type="text"
+id="nome"
+placeholder="Nome do cliente"
+>
+
+
+<input 
+type="text"
+id="telefone"
+placeholder="Telefone"
+>
+
+
+<button type="submit">
+Cadastrar
+</button>
+
+
+</form>
 
 
 
-        <div id="listaServicos">
-
-        </div>
+<div id="listaClientes"></div>
 
 
+</section>
 
-    </section>
+
+
+
+
+
+
+<!-- SERVIÇOS -->
+
+
+<section class="card">
+
+
+<h2>
+Serviços
+</h2>
+
+
+
+<div id="listaServicos"></div>
+
+
+
+</section>
+
 
 
 
 </main>
+
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
