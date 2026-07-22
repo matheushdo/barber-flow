@@ -5,7 +5,7 @@ const router = express.Router();
 const conexao = require("../database/conexao");
 
 
-router.get("/servicos-populares", (req,res)=>{
+router.get("/servicos-populares", (req, res) => {
 
 
     const sql = `
@@ -33,15 +33,15 @@ router.get("/servicos-populares", (req,res)=>{
     `;
 
 
-    conexao.query(sql,(erro,resultado)=>{
+    conexao.query(sql, (erro, resultado) => {
 
 
-        if(erro){
+        if (erro) {
 
             console.log(erro);
 
             return res.status(500).json({
-                erro:"Erro ao buscar serviços"
+                erro: "Erro ao buscar serviços"
             });
 
         }
@@ -60,11 +60,12 @@ router.get("/proximos-atendimentos", (req, res) => {
 
     const sql = `
 
-        SELECT 
-            usuarios.nome AS cliente,
-            servicos.nome AS servico,
-            agendamentos.data,
-            agendamentos.horario
+      SELECT 
+    agendamentos.id,
+    usuarios.nome AS cliente,
+    servicos.nome AS servico,
+    agendamentos.data,
+    agendamentos.horario
 
         FROM agendamentos
 
@@ -79,8 +80,7 @@ router.get("/proximos-atendimentos", (req, res) => {
         ON agendamentos.servico_id = servicos.id
 
 
-        WHERE agendamentos.status != 'cancelado'
-
+WHERE agendamentos.status NOT IN ('cancelado','realizado')
 
         AND agendamentos.data >= CURDATE()
 
@@ -96,12 +96,12 @@ router.get("/proximos-atendimentos", (req, res) => {
     conexao.query(sql, (erro, resultado) => {
 
 
-        if(erro){
+        if (erro) {
 
             console.log(erro);
 
             return res.status(500).json({
-                erro:"Erro ao buscar atendimentos"
+                erro: "Erro ao buscar atendimentos"
             });
 
         }

@@ -19,7 +19,7 @@ exports.listarAgendamentos = (req, res) => {
         ON agendamentos.usuario_id = usuarios.id
 
         INNER JOIN servicos
-        ON agendamentos.servicio_id = servicos.id
+ON agendamentos.servico_id = servicos.id
     `;
 
 
@@ -184,10 +184,10 @@ exports.criarAgendamento = (req, res) => {
                     res.json({
 
                         mensagem:
-                        "Agendamento realizado com sucesso!",
+                            "Agendamento realizado com sucesso!",
 
                         id:
-                        resultado.insertId
+                            resultado.insertId
 
                     });
 
@@ -226,7 +226,7 @@ exports.editarAgendamento = (req, res) => {
         return res.status(400).json({
 
             erro:
-            "Usuário, serviço, data e horário são obrigatórios"
+                "Usuário, serviço, data e horário são obrigatórios"
 
         });
 
@@ -269,7 +269,7 @@ exports.editarAgendamento = (req, res) => {
                 return res.status(500).json({
 
                     erro:
-                    "Erro ao atualizar agendamento"
+                        "Erro ao atualizar agendamento"
 
                 });
 
@@ -277,12 +277,12 @@ exports.editarAgendamento = (req, res) => {
 
 
 
-            if(resultado.affectedRows === 0){
+            if (resultado.affectedRows === 0) {
 
                 return res.status(404).json({
 
                     erro:
-                    "Agendamento não encontrado"
+                        "Agendamento não encontrado"
 
                 });
 
@@ -293,7 +293,7 @@ exports.editarAgendamento = (req, res) => {
             res.json({
 
                 mensagem:
-                "Agendamento atualizado com sucesso!"
+                    "Agendamento atualizado com sucesso!"
 
             });
 
@@ -316,7 +316,7 @@ exports.excluirAgendamento = (req, res) => {
 
 
     const sql =
-    "DELETE FROM agendamentos WHERE id = ?";
+        "DELETE FROM agendamentos WHERE id = ?";
 
 
 
@@ -326,17 +326,17 @@ exports.excluirAgendamento = (req, res) => {
 
         [id],
 
-        (erro, resultado)=>{
+        (erro, resultado) => {
 
 
-            if(erro){
+            if (erro) {
 
                 console.log(erro);
 
                 return res.status(500).json({
 
                     erro:
-                    "Erro ao excluir agendamento"
+                        "Erro ao excluir agendamento"
 
                 });
 
@@ -344,12 +344,12 @@ exports.excluirAgendamento = (req, res) => {
 
 
 
-            if(resultado.affectedRows === 0){
+            if (resultado.affectedRows === 0) {
 
                 return res.status(404).json({
 
                     erro:
-                    "Agendamento não encontrado"
+                        "Agendamento não encontrado"
 
                 });
 
@@ -360,7 +360,7 @@ exports.excluirAgendamento = (req, res) => {
             res.json({
 
                 mensagem:
-                "Agendamento cancelado com sucesso!"
+                    "Agendamento cancelado com sucesso!"
 
             });
 
@@ -377,7 +377,7 @@ exports.excluirAgendamento = (req, res) => {
 
 
 // Verificar horário
-exports.verificarHorario = (req,res)=>{
+exports.verificarHorario = (req, res) => {
 
 
     const {
@@ -408,17 +408,17 @@ exports.verificarHorario = (req,res)=>{
             horario
         ],
 
-        (erro,resultado)=>{
+        (erro, resultado) => {
 
 
-            if(erro){
+            if (erro) {
 
                 console.log(erro);
 
                 return res.status(500).json({
 
                     erro:
-                    "Erro ao verificar horário"
+                        "Erro ao verificar horário"
 
                 });
 
@@ -429,7 +429,7 @@ exports.verificarHorario = (req,res)=>{
             res.json({
 
                 disponivel:
-                resultado.length === 0
+                    resultado.length === 0
 
             });
 
@@ -439,5 +439,41 @@ exports.verificarHorario = (req,res)=>{
 
     );
 
+
+};
+
+// Marcar agendamento como realizado
+exports.realizarAgendamento = (req, res) => {
+
+    const id = req.params.id;
+
+
+    const sql = `
+        UPDATE agendamentos
+        SET status = 'realizado'
+        WHERE id = ?
+    `;
+
+
+    conexao.query(sql, [id], (erro, resultado) => {
+
+
+        if (erro) {
+
+            console.log(erro);
+
+            return res.status(500).json({
+                erro: "Erro ao atualizar agendamento"
+            });
+
+        }
+
+
+        res.json({
+            mensagem: "Agendamento realizado com sucesso!"
+        });
+
+
+    });
 
 };

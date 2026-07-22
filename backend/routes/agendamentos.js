@@ -31,5 +31,8 @@ router.get(
     agendamentosController.verificarHorario
 );
 
+//agendamento realizado
+router.put("/:id/realizado", agendamentosController.realizarAgendamento);
+
 
 module.exports = router;
