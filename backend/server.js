@@ -16,6 +16,9 @@ const agendamentosRoutes = require("./routes/agendamentos");
 const servicosRoutes = require("./routes/servicos");
 const usuariosRoutes = require("./routes/usuarios");
 const dashboardRoutes = require("./routes/dashboards");
+const agendaRoutes = require("./routes/agenda");
+
+app.use("/agenda", agendaRoutes);
 
 
 app.use("/dashboard", dashboardRoutes);
