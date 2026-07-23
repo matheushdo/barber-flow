@@ -1,14 +1,15 @@
 const API = "http://localhost:3000";
-
+let graficoServicos = null;
 
 
 // ===============================
-// LISTAR CLIENTES
+// CLIENTES
 // ===============================
+
 
 fetch(`${API}/clientes`)
 
-.then(resposta => resposta.json())
+.then(res => res.json())
 
 .then(clientes => {
 
@@ -16,28 +17,34 @@ fetch(`${API}/clientes`)
     const lista = document.getElementById("listaClientes");
 
 
-    if(!lista) return;
+    if(lista){
 
 
-
-    clientes.forEach(cliente => {
-
+        clientes.forEach(cliente => {
 
 
-        lista.innerHTML += `
-
+            lista.innerHTML += `
 
             <div class="cliente-card">
-
 
                 <h3>
                     ${cliente.nome}
                 </h3>
 
-
                 <p>
                     Telefone: ${cliente.telefone}
                 </p>
+
+
+                <button onclick="editarCliente(
+                    ${cliente.id},
+                    '${cliente.nome}',
+                    '${cliente.telefone}'
+                )">
+
+                    Editar
+
+                </button>
 
 
                 <button onclick="excluirCliente(${cliente.id})">
@@ -47,38 +54,31 @@ fetch(`${API}/clientes`)
                 </button>
 
 
-
-                <button onclick="editarCliente(${cliente.id}, '${cliente.nome}', '${cliente.telefone}')">
-
-                    Editar
-
-                </button>
-
-
             </div>
 
+            `;
 
-        `;
+
+        });
 
 
-    });
+    }
 
+
+    const totalClientes =
+    document.getElementById("totalClientes");
+
+
+    if(totalClientes){
+
+        totalClientes.innerHTML = clientes.length;
+
+    }
 
 
 })
 
-.catch(erro => {
-
-
-    console.log(
-        "Erro ao buscar clientes:",
-        erro
-    );
-
-
-});
-
-
+.catch(err => console.log(err));
 
 
 
@@ -89,16 +89,17 @@ fetch(`${API}/clientes`)
 // ===============================
 
 
-const formulario = document.getElementById("formCliente");
+const formulario =
+document.getElementById("formCliente");
 
 
 if(formulario){
 
 
-formulario.addEventListener("submit", function(event){
+formulario.addEventListener("submit", e => {
 
 
-    event.preventDefault();
+    e.preventDefault();
 
 
 
@@ -117,8 +118,7 @@ formulario.addEventListener("submit", function(event){
 
 
 
-
-    fetch(`${API}/clientes`, {
+    fetch(`${API}/clientes`,{
 
 
         method:"POST",
@@ -139,68 +139,22 @@ formulario.addEventListener("submit", function(event){
     })
 
 
-
-    .then(resposta => resposta.json())
-
-
-    .then(resultado => {
+    .then(res => res.json())
 
 
-        alert(
-            "Cliente cadastrado com sucesso!"
-        );
+    .then(()=>{
+
+
+        alert("Cliente cadastrado!");
 
 
         location.reload();
 
 
     });
-
 
 
 });
-
-
-}
-
-
-
-
-
-
-// ===============================
-// EXCLUIR CLIENTE
-// ===============================
-
-
-function excluirCliente(id){
-
-
-
-    fetch(`${API}/clientes/${id}`, {
-
-
-        method:"DELETE"
-
-
-    })
-
-
-
-    .then(resposta => resposta.json())
-
-
-    .then(resultado => {
-
-
-        alert(resultado.mensagem);
-
-
-        location.reload();
-
-
-    });
-
 
 
 }
@@ -215,42 +169,33 @@ function excluirCliente(id){
 // ===============================
 
 
-function editarCliente(id, nomeAtual, telefoneAtual){
+function editarCliente(id,nome,telefone){
+
+
+    const novoNome =
+    prompt("Novo nome:",nome);
 
 
 
-    const novoNome = prompt(
-        "Novo nome:",
-        nomeAtual
-    );
+    if(novoNome === null)
+    return;
 
 
 
-    if(novoNome === null) return;
+    const novoTelefone =
+    prompt("Novo telefone:",telefone);
 
 
 
-
-    const novoTelefone = prompt(
-        "Novo telefone:",
-        telefoneAtual
-    );
+    if(novoTelefone === null)
+    return;
 
 
 
-    if(novoTelefone === null) return;
-
-
-
-
-
-    fetch(`${API}/clientes/${id}`, {
-
+    fetch(`${API}/clientes/${id}`,{
 
 
         method:"PUT",
-
-
 
 
         headers:{
@@ -260,7 +205,6 @@ function editarCliente(id, nomeAtual, telefoneAtual){
 
 
         },
-
 
 
         body:JSON.stringify({
@@ -275,17 +219,49 @@ function editarCliente(id, nomeAtual, telefoneAtual){
         })
 
 
+    })
+
+
+    .then(res=>res.json())
+
+
+    .then(()=>{
+
+
+        location.reload();
+
+
+    });
+
+
+
+}
+
+
+
+
+
+// ===============================
+// EXCLUIR CLIENTE
+// ===============================
+
+
+function excluirCliente(id){
+
+
+    fetch(`${API}/clientes/${id}`,{
+
+
+        method:"DELETE"
+
 
     })
 
 
-
-    .then(resposta => resposta.json())
-
+    .then(res=>res.json())
 
 
-    .then(resultado => {
-
+    .then(resultado=>{
 
 
         alert(resultado.mensagem);
@@ -294,36 +270,34 @@ function editarCliente(id, nomeAtual, telefoneAtual){
         location.reload();
 
 
-
     });
-
 
 
 }
 // ===============================
-// LISTAR SERVIÇOS
+// SERVIÇOS
 // ===============================
 
 
 fetch(`${API}/servicos`)
 
-.then(resposta => resposta.json())
+.then(res => res.json())
 
 .then(servicos => {
 
 
-    const lista = document.getElementById("listaServicos");
-
-
-    if(!lista) return;
-
-
-
-    servicos.forEach(servico => {
+    const lista =
+    document.getElementById("listaServicos");
 
 
 
-        lista.innerHTML += `
+    if(lista){
+
+
+        servicos.forEach(servico => {
+
+
+            lista.innerHTML += `
 
 
             <div class="cliente-card">
@@ -334,11 +308,9 @@ fetch(`${API}/servicos`)
                 </h3>
 
 
-
                 <p>
                     💰 R$ ${servico.preco}
                 </p>
-
 
 
                 <p>
@@ -346,124 +318,22 @@ fetch(`${API}/servicos`)
                 </p>
 
 
-
             </div>
 
 
-        `;
+            `;
 
 
-
-    });
-
-
-
-})
-
-
-.catch(erro => {
-
-
-    console.log(
-        "Erro ao buscar serviços:",
-        erro
-    );
-
-
-});
-
-
-
-
-
-
-
-
-// ===============================
-// EFEITO LUZ DO CURSOR
-// ===============================
-
-
-document.addEventListener("mousemove", (event) => {
-
-
-    document.documentElement.style.setProperty(
-        "--mouse-x",
-        event.clientX + "px"
-    );
-
-
-    document.documentElement.style.setProperty(
-        "--mouse-y",
-        event.clientY + "px"
-    );
-
-
-});
-
-
-
-
-
-
-
-
-
-// ===============================
-// TOTAL DE CLIENTES
-// ===============================
-
-
-fetch(`${API}/clientes`)
-
-.then(resposta => resposta.json())
-
-.then(clientes => {
-
-
-
-    const totalClientes =
-    document.getElementById("totalClientes");
-
-
-
-    if(totalClientes){
-
-
-        totalClientes.innerHTML =
-        clientes.length;
+        });
 
 
     }
 
 
 
-});
-
-
-
-
-
-
-
-
-
-// ===============================
-// TOTAL SERVIÇOS
-// ===============================
-
-
-fetch(`${API}/servicos`)
-
-.then(resposta => resposta.json())
-
-.then(servicos => {
-
-
 
     const totalServicos =
     document.getElementById("totalServicos");
-
 
 
     if(totalServicos){
@@ -476,10 +346,9 @@ fetch(`${API}/servicos`)
     }
 
 
+})
 
-});
-
-
+.catch(err=>console.log(err));
 
 
 
@@ -489,13 +358,11 @@ fetch(`${API}/servicos`)
 
 // ===============================
 // FATURAMENTO
-// (temporário)
 // ===============================
 
 
 const faturamento =
 document.getElementById("faturamento");
-
 
 
 if(faturamento){
@@ -513,113 +380,137 @@ if(faturamento){
 
 
 
-
-
 // ===============================
-// GRÁFICO SERVIÇOS MAIS REALIZADOS
+// GRÁFICO SERVIÇOS POPULARES
 // ===============================
 
 
-fetch(`${API}/dashboard/servicos-populares`)
+// ===============================
+// GRÁFICO SERVIÇOS POPULARES
+// ===============================
+
+function carregarGrafico(){
 
 
-.then(resposta => resposta.json())
+    fetch(`${API}/dashboard/servicos-populares`)
 
 
-.then(dados => {
+    .then(res=>res.json())
 
 
-
-    const canvas =
-    document.getElementById("graficoServicos");
+    .then(dados=>{
 
 
-
-    if(!canvas) return;
-
-
+        const canvas =
+        document.getElementById("graficoServicos");
 
 
-    const nomes =
-    dados.map(item => item.nome);
-
-
-
-
-    const quantidades =
-    dados.map(item => item.quantidade);
+        if(!canvas)
+        return;
 
 
 
-
-
-    new Chart(
-        canvas.getContext("2d"),
-        {
-
-
-        type:"pie",
+        const nomes =
+        dados.map(item=>item.nome);
 
 
 
-        data:{
-
-
-            labels:nomes,
-
-
-
-            datasets:[{
-
-
-                data:quantidades
+        const quantidades =
+        dados.map(item=>item.quantidade);
 
 
 
-            }]
+        // apaga gráfico antigo
+        if(graficoServicos){
 
+            graficoServicos.destroy();
 
-        },
-
-
-
-
-        options:{
-
-
-            responsive:true,
+        }
 
 
 
-            maintainAspectRatio:false,
+        graficoServicos = new Chart(
+            canvas.getContext("2d"),
+            {
 
 
-
-            plugins:{
-
-
-                legend:{
+                type:"pie",
 
 
-                    position:"bottom"
+                data:{
+
+
+                    labels:nomes,
+
+
+                    datasets:[{
+
+
+                        data:quantidades,
+
+
+                        backgroundColor:[
+
+                            "#00aaff",
+                            "#22d3ee",
+                            "#006eff",
+                            "#00c853",
+                            "#ff9800",
+                            "#9c27b0"
+
+                        ]
+
+
+                    }]
+
+
+                },
+
+
+                options:{
+
+
+                    responsive:true,
+
+
+                    maintainAspectRatio:false,
+
+
+                    plugins:{
+
+
+                        legend:{
+
+
+                            position:"bottom"
+
+
+                        }
+
+
+                    }
 
 
                 }
 
 
             }
+        );
+
+
+    })
+
+
+    .catch(err=>console.log(err));
+
+
+}
+
+
+carregarGrafico();
 
 
 
-        }
-
-
-
-    });
-
-
-
-});
 
 // ===============================
 // PRÓXIMOS ATENDIMENTOS
@@ -629,39 +520,34 @@ fetch(`${API}/dashboard/servicos-populares`)
 fetch(`${API}/dashboard/proximos-atendimentos`)
 
 
-.then(resposta => resposta.json())
+.then(res=>res.json())
 
 
-.then(atendimentos => {
-
+.then(atendimentos=>{
 
 
     const lista =
-    document.getElementById("proximosAtendimentos");
+    document.getElementById("listaAtendimentos");
 
 
 
-    if(!lista) return;
+    if(!lista)
+    return;
 
 
 
-
-
-    lista.innerHTML = "";
-
-
+    lista.innerHTML="";
 
 
 
     if(atendimentos.length === 0){
-
 
 
         lista.innerHTML = `
 
-            <p>
-                Nenhum atendimento próximo
-            </p>
+        <p>
+            Nenhum atendimento próximo.
+        </p>
 
         `;
 
@@ -675,181 +561,7 @@ fetch(`${API}/dashboard/proximos-atendimentos`)
 
 
 
-
-    atendimentos.forEach(atendimento => {
-
-
-
-        const data = new Date(atendimento.data);
-
-
-
-        const dataFormatada =
-        data.toLocaleDateString("pt-BR");
-
-
-
-
-
-        lista.innerHTML += `
-
-
-            <div class="atendimento-card">
-
-
-
-                <h3>
-                    ${atendimento.cliente}
-                </h3>
-
-
-
-                <p>
-                    ${atendimento.servico}
-                </p>
-
-
-
-
-                <p>
-                    📅 ${dataFormatada}
-                </p>
-
-
-
-
-                <span>
-                    🕒 ${atendimento.horario}
-                </span>
-
-
-
-            </div>
-
-
-        `;
-
-
-
-    });
-
-
-
-
-})
-
-
-.catch(erro => {
-
-
-    console.log(
-        "Erro ao buscar próximos atendimentos:",
-        erro
-    );
-
-
-});
-
-// ===============================
-// PRÓXIMOS ATENDIMENTOS
-// ===============================
-
-
-fetch(`${API}/dashboard/proximos-atendimentos`)
-
-.then(resposta => resposta.json())
-
-.then(atendimentos => {
-
-
-    const lista = document.getElementById("proximosAtendimentos");
-
-
-    lista.innerHTML = "";
-
-
-
-    if(atendimentos.length === 0){
-
-
-        lista.innerHTML = "Nenhum atendimento encontrado";
-
-
-        return;
-
-    }
-
-
-
-    atendimentos.forEach(atendimento => {
-
-
-        lista.innerHTML += `
-
-
-            <div class="atendimento-card">
-
-
-                <h3>
-                    ${atendimento.cliente}
-                </h3>
-
-
-                <p>
-                    ✂ ${atendimento.servico}
-                </p>
-
-
-                <p>
-                    📅 ${new Date(atendimento.data).toLocaleDateString("pt-BR")}
-                </p>
-
-
-                <p>
-                    ⏰ ${atendimento.horario}
-                </p>
-
-
-            </div>
-
-
-        `;
-
-
-    });
-
-
-})
-
-.catch(erro => {
-
-    console.log(
-        "Erro ao buscar atendimentos:",
-        erro
-    );
-
-});
-
-// ===============================
-// PRÓXIMOS ATENDIMENTOS
-// ===============================
-
-
-fetch(`${API}/dashboard/proximos-atendimentos`)
-
-.then(resposta => resposta.json())
-
-.then(atendimentos => {
-
-
-    const lista = document.getElementById("listaAtendimentos");
-
-
-    lista.innerHTML = "";
-
-
-
-    atendimentos.forEach(atendimento => {
+    atendimentos.forEach(atendimento=>{
 
 
         lista.innerHTML += `
@@ -864,19 +576,27 @@ fetch(`${API}/dashboard/proximos-atendimentos`)
 
 
             <p>
-                Serviço: ${atendimento.servico}
+                ✂ ${atendimento.servico}
             </p>
 
 
             <p>
-                Data: ${new Date(atendimento.data).toLocaleDateString()}
+                📅 ${new Date(atendimento.data)
+                .toLocaleDateString("pt-BR")}
             </p>
 
 
             <p>
-                Horário: ${atendimento.horario}
+                ⏰ ${atendimento.horario}
             </p>
 
+
+
+           <button 
+class="btn-realizado" 
+data-id="${atendimento.id}">
+    ✅ Realizado
+</button>
 
 
         </div>
@@ -887,50 +607,87 @@ fetch(`${API}/dashboard/proximos-atendimentos`)
 
     });
 
+    document.querySelectorAll(".btn-realizado").forEach(botao => {
+
+
+    botao.addEventListener("click", ()=>{
+
+
+        const id = botao.dataset.id;
+
+
+        const card = botao.closest(".atendimento-card");
+
+
+        marcarRealizado(id, card);
+
+
+    });
+
+
+});
+
 
 
 })
 
-.catch(erro => {
+.catch(err=>console.log(err));
 
-    console.log(
-        "Erro ao buscar próximos atendimentos:",
-        erro
-    );
-
-});
-
-document.addEventListener("mousemove", (e)=>{
+// ===============================
+// MARCAR COMO REALIZADO
+// ===============================
 
 
-    document.body.style.setProperty(
-        "--x",
-        e.clientX + "px"
-    );
+function marcarRealizado(id, card){
 
 
-    document.body.style.setProperty(
-        "--y",
-        e.clientY + "px"
-    );
+    fetch(`${API}/agendamentos/${id}/realizado`, {
+
+        method:"PUT"
+
+    })
 
 
-});
-
-document.addEventListener("mousemove",(e)=>{
-
-    document.body.style.setProperty(
-        "--mouse-x",
-        e.clientX + "px"
-    );
+    .then(resposta => resposta.json())
 
 
-    document.body.style.setProperty(
-        "--mouse-y",
-        e.clientY + "px"
-    );
+   .then(resultado => {
 
-});
+
+    console.log(resultado.mensagem);
+
+
+    card.remove();
+
+
+    carregarGrafico();
+
+
+})
+
+    .catch(erro => {
+
+
+        console.log(
+            "Erro ao marcar realizado:",
+            erro
+        );
+
+
+    });
+
+
+}
+
+
+
+
+
+
+// ===============================
+// EFEITO LUZ DO MOUSE
+// ===============================
+
 
 document.addEventListener("mousemove",(e)=>{
 

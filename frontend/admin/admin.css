@@ -444,28 +444,16 @@ body::after {
 
 .dashboard-principal {
 
-
-
     display:grid;
 
-
-
     grid-template-columns:
-
-    350px 1fr;
-
-
+    450px 1fr;
 
     gap:30px;
 
-
-
     margin-bottom:40px;
 
-
-
 }
-
 
 
 
@@ -483,16 +471,20 @@ body::after {
 
 
 
+.grafico-container {
 
-#graficoServicos {
+    height:300px;
 
-
-    max-height:300px;
-
+    width:100%;
 
 }
 
 
+#graficoServicos {
+
+    max-height:300px;
+
+}
 
 
 .proximos-box {
@@ -847,5 +839,42 @@ button {
 }
 
 
+
+}
+
+/* BOTÃO REALIZADO */
+
+.btn-realizado {
+
+    margin-top: 15px;
+
+    width: 100%;
+
+    padding: 10px 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #00c853;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.btn-realizado:hover {
+
+    background: #00e676;
+
+    transform: translateY(-2px);
 
 }
