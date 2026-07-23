@@ -436,10 +436,14 @@ exports.listarHorariosDisponiveis = (req, res) => {
 
             // Buscar agendamentos existentes
             const sqlAgendamentos = `
-                SELECT horario
-                FROM agendamentos
-                WHERE data = ?
-                AND status != 'cancelado'
+             SELECT 
+    agendamentos.horario,
+    servicos.duracao
+FROM agendamentos
+JOIN servicos
+ON agendamentos.servico_id = servicos.id
+WHERE data = ?
+AND status != 'cancelado'
             `;
 
 
@@ -465,9 +469,8 @@ exports.listarHorariosDisponiveis = (req, res) => {
 
                         const intervalos = gerarIntervaloOcupado(
                             String(item.horario).substring(0, 5),
-                            duracao
+                            item.duracao
                         );
-
 
                         ocupados.push(...intervalos);
 
