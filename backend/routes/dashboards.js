@@ -115,4 +115,57 @@ WHERE agendamentos.status NOT IN ('cancelado','realizado')
 
 });
 
+router.get("/faturamento", (req, res) => {
+
+    const sql = `
+        SELECT
+            COALESCE(SUM(servicos.preco), 0) AS faturamento
+        FROM agendamentos
+        INNER JOIN servicos
+            ON agendamentos.servico_id = servicos.id
+        WHERE agendamentos.status = 'realizado'
+    `;
+
+    conexao.query(sql, (erro, resultado) => {
+
+        if (erro) {
+            console.log(erro);
+
+            return res.status(500).json({
+                erro: "Erro ao calcular faturamento"
+            });
+        }
+
+        res.json(resultado[0]);
+
+    });
+
+});
+
 module.exports = router;
+
+router.get("/faturamento", (req, res) => {
+
+    const sql = `
+        SELECT
+            COALESCE(SUM(servicos.preco), 0) AS faturamento
+        FROM agendamentos
+        INNER JOIN servicos
+            ON agendamentos.servico_id = servicos.id
+        WHERE agendamentos.status = 'realizado'
+    `;
+
+    conexao.query(sql, (erro, resultado) => {
+
+        if (erro) {
+            console.log(erro);
+            return res.status(500).json({
+                erro: "Erro ao calcular faturamento"
+            });
+        }
+
+        res.json(resultado[0]);
+
+    });
+
+});

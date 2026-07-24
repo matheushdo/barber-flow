@@ -27,6 +27,7 @@ app.use("/clientes", clientesRoutes);
 app.use("/agendamentos", agendamentosRoutes);
 app.use("/servicos", servicosRoutes);
 app.use("/usuarios", usuariosRoutes);
+app.use("/financeiro", require("./routes/financeiro"));
 
 app.get("/", (req, res) => {
     res.send("API da Barber Flow funcionando!");
